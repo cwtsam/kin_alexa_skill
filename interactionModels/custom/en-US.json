@@ -1,0 +1,140 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "home voice",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "reminderintent",
+          "slots": [
+            {
+              "name": "day",
+              "type": "AMAZON.DATE"
+            },
+            {
+              "name": "time",
+              "type": "AMAZON.TIME"
+            },
+            {
+              "name": "message",
+              "type": "AMAZON.SearchQuery"
+            }
+          ],
+          "samples": [
+            "remind me to {day} {time}",
+            "remind me to {day}",
+            "remind me to {time}",
+            "remind me to {message}",
+            "set a reminder {time} {day}",
+            "create a reminder {day} {time}",
+            "create a reminder {time} {day}",
+            "create a reminder {time}",
+            "create a reminder {day}",
+            "create a reminder {message}",
+            "set a reminder {time}",
+            "set a reminder {day}",
+            "set a reminder {message}",
+            "set a reminder {day} {time} "
+          ]
+        },
+        {
+          "name": "remindplayintent",
+          "slots": [],
+          "samples": [
+            "play the reminder",
+            "play audio",
+            "play reminder",
+            "play the reminders",
+            "to play the reminders",
+            "to play the reminder"
+          ]
+        }
+      ],
+      "types": []
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "reminderintent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "day",
+              "type": "AMAZON.DATE",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.703958800555.895199173325"
+              }
+            },
+            {
+              "name": "time",
+              "type": "AMAZON.TIME",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.703958800555.869078792365"
+              }
+            },
+            {
+              "name": "message",
+              "type": "AMAZON.SearchQuery",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.703958800555.419279835457"
+              }
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.703958800555.895199173325",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "What day ?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.703958800555.869078792365",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "What Time ?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.703958800555.419279835457",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "What should i remind ?"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "6"
+}
